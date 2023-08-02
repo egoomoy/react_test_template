@@ -55,15 +55,15 @@ function LoginForm() {
 
   const LoginRequest = () => {
     instance
-      .post("/login", {
-        accntId: values.accntId,
+      .post("/user-service/login", {
+        email: values.accntId,
         password: values.password,
       })
       .then(function (response) {
-        const { body, status, message } = response.data;
-        // console.log(body);
+        const { data, status, message } = response;
+        console.log(response);
         if (status === 200) {
-          setUserInfo(body);
+          setUserInfo(data);
         } else {
           console.log(message);
         }
@@ -78,8 +78,6 @@ function LoginForm() {
 
     if (!accntId) {
       errors.accntId = "계정이 입력되지 않았습니다.";
-    } else if (!/^[a-zA-Z0-9]*$/.test(accntId)) {
-      errors.accntId = "입력된 계정이 유효하지 않습니다.";
     }
 
     if (!password) {

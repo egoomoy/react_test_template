@@ -15,8 +15,14 @@ const AxiosInterceptor = ({ children }) => {
   // console.log(`access  : ${accessToken}`);
   const requestInterceptor = instance.interceptors.request.use(
     (config) => {
-      config.headers.Authorization = `Bearer ${accessToken}`;
-      return config;
+      // eslint-disable-next-line no-constant-condition
+      if (config.url === "/user-service/login") {
+        console.log(config);
+        return config;
+      } else {
+        config.headers.Authorization = `Bearer ${accessToken}`;
+        return config;
+      }
     },
     (err) => {
       return Promise.reject(err);

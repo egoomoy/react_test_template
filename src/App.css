@@ -1,14 +1,13 @@
 :root {
-  --main-radius: 0.5rem;
-  --main-padding: 0.7rem;
-  font-size: 16px;
+  --main-radius: 0.4rem;
+  --main-padding: 0.4rem;
+  font-size: 14px;
   --sub-title-font-size: 1.3rem;
 }
 
 * {
   margin: 0;
   padding: 0;
-  text-align: left;
 }
 
 li {
@@ -64,7 +63,7 @@ body {
   grid-area: header;
   /* border-radius: var(--main-radius); */
   padding: var(--main-padding);
-  min-height: 40px;
+  min-height: 35px;
 
   color: black;
   border-bottom: 0.1rem solid #ececec;
@@ -72,16 +71,55 @@ body {
 
 main {
   /* background: #84ffff; */
-  background-color: #f4f5f9;
+  background-color: #f8f9fa;
   grid-area: main;
+  border-radius: var(--main-radius);
   padding: var(--main-padding);
+  height: 93vh;
 }
 
 #sidebar {
   grid-area: sidebar;
   border-right: 0.1rem solid #ececec;
 }
+/* 
+footer {
+background: #ECECEC;
+grid-area: footer;
+border-radius: var(--main-radius);
+padding: var(--main-padding);
+} */
+/* 
+#content1 {
+background: #6fffd2;
+grid-area: content1;
+border-radius: var(--main-radius);
+padding-top: var(--main-padding);
+}
 
+#content2 {
+background: #64ffda;
+grid-area: content2;
+border-radius: var(--main-radius);
+padding-top: var(--main-padding);
+}
+
+#content3 {
+background: #73ffba;
+grid-area: content3;
+border-radius: var(--main-radius);
+padding-top: var(--main-padding);
+} */
+/*   
+a {
+text-align: center;
+display: block;
+font-family: inherit;
+text-decoration: none;
+font-weight: bold;
+margin: 1rem;
+}
+*/
 @media only screen and (max-width: 900px) {
   .b_container {
     grid-template-columns: 1fr;
