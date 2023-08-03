@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/user-service": {
-        target: "http://localhost:8080",
+        target: "http://localhost:80",
       },
     },
   },
