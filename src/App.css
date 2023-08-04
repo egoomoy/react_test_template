@@ -75,7 +75,6 @@ main {
   grid-area: main;
   border-radius: var(--main-radius);
   padding: var(--main-padding);
-  height: 93vh;
 }
 
 #sidebar {
@@ -130,3 +129,4 @@ margin: 1rem;
       "main";
   }
 }
+

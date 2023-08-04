@@ -54,23 +54,32 @@ function LoginForm() {
   const { setUserInfo } = useUserStore();
 
   const LoginRequest = () => {
-    instance
-      .post("/user-service/login", {
-        email: values.accntId,
-        password: values.password,
-      })
-      .then(function (response) {
-        const { data, status, message } = response;
-        console.log(response);
-        if (status === 200) {
-          setUserInfo(response.headers.user_token_id);
-        } else {
-          console.log(message);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // instance
+    //   .post("/user-service/login", {
+    //     email: values.accntId,
+    //     password: values.password,
+    //   })
+    //   .then(function (response) {
+    //     const { data, status, message } = response;
+    //     console.log(response);
+    //     if (status === 200) {
+    //       setUserInfo(response.headers.user_token_id);
+    //     } else {
+
+    //     }
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+
+    setUserInfo({
+      state: {
+        userInfo: "3d7e074f-b5cb-4992-a765-0c1c2c8c4978",
+        accessToken:
+          "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzZDdlMDc0Zi1iNWNiLTQ5OTItYTc2NS0wYzFjMmM4YzQ5NzgiLCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4iLCJleHAiOjE2OTExNDM1MDV9.tuli_qzvnOPCvXUtkzpyCLDllunxzDJCw1bKo2C7Io9a40wWiTpu5KIjVBaX9Ed94SxEx9soKmB7CZ05WjPEZw",
+      },
+      version: 0,
+    });
   };
 
   const validate = ({ accntId, password }) => {

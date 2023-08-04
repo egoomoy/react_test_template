@@ -9,11 +9,11 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
 import "./App.css";
-import TestPage from "./components/testPage/TestPage";
 import { useUserStore } from "./store/useUserStore";
-import TestPage2 from "./components/testPage/TestPage2";
+import CustomPage from "./pages/customArea/CustomPage";
 import LoginForm from "./components/login/LoginForm";
-
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 function App() {
   const { userInfo } = useUserStore();
 
@@ -36,8 +36,7 @@ function App() {
           </header>
           <main>
             <Routes>
-              <Route path="testPage" element={<TestPage />} />
-              <Route path="testPage2" element={<TestPage2 />} />
+              <Route path="customPage" element={<CustomPage />} />
               <Route path="401" element={<UnauthorizedPage />} />
               <Route path="403" element={<Forbidden />} />
               <Route path="404" element={<NotFoundPage />} />

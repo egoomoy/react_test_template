@@ -75,6 +75,12 @@ function Sidebar() {
             <LinkNm>my testPage</LinkNm>
           </NavLink>
           <NavLink
+            to="/customPage"
+            className={({ isActive }) => (isActive ? "link-active" : "link")}
+          >
+            <LinkNm>my customPage</LinkNm>
+          </NavLink>
+          <NavLink
             to="/testPage2"
             className={({ isActive }) => (isActive ? "link-active" : "link")}
           >

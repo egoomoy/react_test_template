@@ -6,11 +6,6 @@ const SquareBox = styled.div.attrs((props) => props)`
   width: ${(props) => props.boxSizeWidth};
   background: ${(props) => props.background};
   border-radius: 5px;
-  :before {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-  }
   height: 100%;
 `;
 
