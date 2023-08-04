@@ -31,8 +31,8 @@ const AxiosInterceptor = ({ children }) => {
 
   const responseInterceptor = instance.interceptors.response.use(
     (response) => {
-      if (response.headers.bearer) {
-        setAccessToken(response.headers.bearer);
+      if (response.headers.access_token) {
+        setAccessToken(response.headers.access_token);
       }
       return response;
     },
@@ -45,7 +45,7 @@ const AxiosInterceptor = ({ children }) => {
         alert("세션이 만료되었습니다. 다시 로그인 해주세요.");
         // history.replace("/401"); // <-- navigate
       } else if (err.response.data.status === 403) {
-        window.location.href = "http://localhost:3000/403";
+        // window.location.href = "http://localhost:3000/403";
       }
       return Promise.reject(err);
     }

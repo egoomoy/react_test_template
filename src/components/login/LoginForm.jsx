@@ -63,7 +63,7 @@ function LoginForm() {
         const { data, status, message } = response;
         console.log(response);
         if (status === 200) {
-          setUserInfo(data);
+          setUserInfo(response.headers.user_token_id);
         } else {
           console.log(message);
         }
