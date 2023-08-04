@@ -69,22 +69,16 @@ function Sidebar() {
         </Title> */}
         <RouterWrapper>
           <NavLink
-            to="/testPage"
-            className={({ isActive }) => (isActive ? "link-active" : "link")}
-          >
-            <LinkNm>my testPage</LinkNm>
-          </NavLink>
-          <NavLink
             to="/customPage"
             className={({ isActive }) => (isActive ? "link-active" : "link")}
           >
             <LinkNm>my customPage</LinkNm>
           </NavLink>
           <NavLink
-            to="/testPage2"
+            to="/userCustomPage"
             className={({ isActive }) => (isActive ? "link-active" : "link")}
           >
-            <LinkNm>my testPage2</LinkNm>
+            <LinkNm>user custom page</LinkNm>
           </NavLink>
         </RouterWrapper>
       </SidebarWrapper>

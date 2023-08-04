@@ -12,8 +12,7 @@ import "./App.css";
 import { useUserStore } from "./store/useUserStore";
 import CustomPage from "./pages/customArea/CustomPage";
 import LoginForm from "./components/login/LoginForm";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import Content from "./pages/userCustomPage/Content";
 function App() {
   const { userInfo } = useUserStore();
 
@@ -36,6 +35,7 @@ function App() {
           </header>
           <main>
             <Routes>
+              <Route path="userCustomPage" element={<Content />} />
               <Route path="customPage" element={<CustomPage />} />
               <Route path="401" element={<UnauthorizedPage />} />
               <Route path="403" element={<Forbidden />} />
