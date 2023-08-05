@@ -1,6 +1,6 @@
 :root {
   --main-radius: 0.4rem;
-  --main-padding: 0.4rem;
+  --main-padding: 1rem 12rem 1rem 12rem;
   font-size: 14px;
   --sub-title-font-size: 1.3rem;
 }
@@ -35,11 +35,11 @@ body {
 .a_container {
   display: grid;
   height: 100vh;
-  grid-template-columns: 1fr 2fr 2fr 2fr;
-  grid-template-rows: 7fr 93fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 88fr;
   grid-template-areas:
-    "header header header header"
-    "main main main main";
+  "header"
+  "main";
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
@@ -48,30 +48,30 @@ body {
 .b_container {
   display: grid;
   height: 100vh;
-  grid-template-columns: 1fr 2fr 2fr 2fr;
-  grid-template-rows: 7fr 93fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 2fr 88fr;
   grid-template-areas:
-    "header header header header"
-    "sidebar main main main";
+    "header"
+    "sidebar"
+    "main";
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
 }
 
 #header {
-  background: #ffffff;
+  background: #f3f3f3;
   grid-area: header;
   /* border-radius: var(--main-radius); */
-  padding: var(--main-padding);
+  padding: 0.5rem 0rem;
   min-height: 35px;
-
   color: black;
   border-bottom: 0.1rem solid #ececec;
 }
 
 main {
   /* background: #84ffff; */
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   grid-area: main;
   border-radius: var(--main-radius);
   padding: var(--main-padding);
@@ -79,7 +79,9 @@ main {
 
 #sidebar {
   grid-area: sidebar;
-  border-right: 0.1rem solid #ececec;
+  background-color: #ffffff;
+  padding: 0.5rem 0rem;
+  border-bottom: 0.1rem solid #e3e3e3;
 }
 /* 
 footer {
@@ -130,3 +132,202 @@ margin: 1rem;
   }
 }
 
+.react-grid-layout {
+  position: relative;
+  transition: height 200ms ease;
+}
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+.react-grid-item img {
+  pointer-events: none;
+  user-select: none;
+}
+.react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+.react-grid-item.resizing {
+  z-index: 1;
+  will-change: width, height;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.react-grid-item.dropping {
+  visibility: hidden;
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: rgb(187, 255, 184);
+  opacity: 0.2;
+  transition-duration: 100ms;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+
+
+
+.react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.react-grid-item > .react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 2px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.react-resizable-hide > .react-resizable-handle {
+  display: none;
+}
+
+.react-grid-item > .react-resizable-handle.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+  transform: rotate(90deg);
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+  transform: rotate(180deg);
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+  transform: rotate(270deg);
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-w,
+.react-grid-item > .react-resizable-handle.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: ew-resize;
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg);
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg);
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-n,
+.react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: ns-resize;
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg);
+}
+.react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+.react-resizable {
+  position: relative;
+}
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+");
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+}
+.react-resizable-handle-sw {
+  bottom: 0;
+  left: 0;
+  cursor: sw-resize;
+  transform: rotate(90deg);
+}
+.react-resizable-handle-se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+.react-resizable-handle-nw {
+  top: 0;
+  left: 0;
+  cursor: nw-resize;
+  transform: rotate(180deg);
+}
+.react-resizable-handle-ne {
+  top: 0;
+  right: 0;
+  cursor: ne-resize;
+  transform: rotate(270deg);
+}
+.react-resizable-handle-w,
+.react-resizable-handle-e {
+  top: 50%;
+  margin-top: -10px;
+  cursor: ew-resize;
+}
+.react-resizable-handle-w {
+  left: 0;
+  transform: rotate(135deg);
+}
+.react-resizable-handle-e {
+  right: 0;
+  transform: rotate(315deg);
+}
+.react-resizable-handle-n,
+.react-resizable-handle-s {
+  left: 50%;
+  margin-left: -10px;
+  cursor: ns-resize;
+}
+.react-resizable-handle-n {
+  top: 0;
+  transform: rotate(225deg);
+}
+.react-resizable-handle-s {
+  bottom: 0;
+  transform: rotate(45deg);
+} 
+/* 
+.video_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:  100%;
+ }
+ 
+ .player__wrapper {
+  position: relative;
+ }
+ 
+ h2 {
+  color: #7b2cbf;
+ } */

@@ -2,8 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useUserStore } from "../../store/useUserStore";
-import Button from "../common/Button";
-
+import { Avatar } from "@mui/material";
 const HeaderWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -28,13 +27,13 @@ const UserInfoArea = styled.div`
 
 export default function Header() {
   const { userInfo } = useUserStore();
+
+  const photoURL = "./src/assets/avatar_18.jpg";
   return (
     <>
       <HeaderWrapper>
-        <LogoArea>😀</LogoArea>
-        <UserInfoArea>
-          {userInfo ? <Button type="text">로그아웃</Button> : ""}
-        </UserInfoArea>
+        <LogoArea>.--. .-. --- - --- - -.-- .--. .</LogoArea>
+        <UserInfoArea></UserInfoArea>
       </HeaderWrapper>
     </>
   );

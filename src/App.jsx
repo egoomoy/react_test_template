@@ -10,7 +10,6 @@ import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
 import "./App.css";
 import { useUserStore } from "./store/useUserStore";
-import CustomPage from "./pages/customArea/CustomPage";
 import LoginForm from "./components/login/LoginForm";
 import Content from "./pages/userCustomPage/Content";
 function App() {
@@ -20,7 +19,7 @@ function App() {
     <>
       {!userInfo ? (
         <div className="a_container">
-          <header id="header">HeaD wrapper</header>
+          <header id="header"></header>
           <main>
             <Routes>
               <Route path="login" element={<LoginForm />} />
@@ -36,7 +35,6 @@ function App() {
           <main>
             <Routes>
               <Route path="userCustomPage" element={<Content />} />
-              <Route path="customPage" element={<CustomPage />} />
               <Route path="401" element={<UnauthorizedPage />} />
               <Route path="403" element={<Forbidden />} />
               <Route path="404" element={<NotFoundPage />} />

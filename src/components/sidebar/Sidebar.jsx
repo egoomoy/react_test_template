@@ -4,11 +4,11 @@ import styled from "styled-components";
 import palette from "../../assets/palette";
 
 const SidebarWrapper = styled.nav`
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   display: flex;
-  flex-direction: column;
   font-weight: 500;
-  align-items: center;
+  width: 500px;
+  padding: 0rem 2rem;
 `;
 // const Title = styled.div`
 //   color: #042b5c;
@@ -22,9 +22,9 @@ const SidebarWrapper = styled.nav`
 //   }
 // `;
 const RouterWrapper = styled.div`
-  width: 80%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin-right: auto;
 
   .link-active {
     border-radius: 5px;
@@ -37,7 +37,6 @@ const RouterWrapper = styled.div`
     text-align: left;
     width: 100%;
     padding: 0.6rem 0 0.6rem 0;
-    margin-bottom: 0.3rem;
   }
   a > svg {
     font-size: 1rem;
@@ -52,8 +51,9 @@ const RouterWrapper = styled.div`
 `;
 
 const LinkNm = styled.span`
-  margin-left: 0.7rem;
+  margin-left: 1rem;
   font-size: 1rem;
+  width: 150px;
 `;
 function Sidebar() {
   return (
@@ -69,17 +69,17 @@ function Sidebar() {
         </Title> */}
         <RouterWrapper>
           <NavLink
-            to="/customPage"
-            className={({ isActive }) => (isActive ? "link-active" : "link")}
-          >
-            <LinkNm>my customPage</LinkNm>
-          </NavLink>
-          <NavLink
             to="/userCustomPage"
             className={({ isActive }) => (isActive ? "link-active" : "link")}
           >
-            <LinkNm>user custom page</LinkNm>
+            <LinkNm>Potal Layout Set</LinkNm>
           </NavLink>
+          {/* <NavLink
+            to="/userCustomPage"
+            className={({ isActive }) => (isActive ? "link-active" : "link")}
+          >
+            <LinkNm>MY lecture room</LinkNm>
+          </NavLink> */}
         </RouterWrapper>
       </SidebarWrapper>
     </>
