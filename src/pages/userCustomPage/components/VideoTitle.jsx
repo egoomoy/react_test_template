@@ -1,5 +1,4 @@
 import React from "react";
-import useClasses from "../../../hooks/useClasses";
 import CloseIcon from "@mui/icons-material/Close";
 import styled from "styled-components";
 import Typography from "@mui/material/Typography";
@@ -7,7 +6,6 @@ import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import { Scale } from "@mui/icons-material";
 
 const Container = styled.div`
   height: 100%;
@@ -36,7 +34,7 @@ const Container = styled.div`
   }
   .video_name {
     margin-right: auto;
-    color: #383838;
+    color: #0f0f0f;
     text-overflow: ellipsis;
     overflow: "hidden";
     flex: none;
@@ -46,20 +44,18 @@ const Container = styled.div`
 const SetArea = styled.div`
   z-index: 3;
   width: 100%;
-  background-color: rgba(14, 42, 127, 0.1);
+  background-color: rgba(154, 181, 255, 0.3);
   position: absolute;
   display: flex;
-
+  padding: 0.5rem 1rem;
   div {
     position: relative;
-    padding: 0.5rem 1rem;
     flex: none;
   }
   svg {
     margin-left: auto;
-    padding: 0.5rem 1rem;
-    margin-left: auto;
-    color: #fff;
+    color: #ffffff;
+    cursor: pointer;
   }
 `;
 

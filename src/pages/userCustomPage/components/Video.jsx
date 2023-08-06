@@ -9,7 +9,7 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
   display: flex;
-  background: #0f0f0f;
+  background: #1b1b1b;
   border: 0.1rem dotted #bebebe;
   flex-direction: "column";
   border-radius: 3px;
@@ -30,20 +30,18 @@ const Container = styled.div`
 const SetArea = styled.div`
   z-index: 3;
   width: 100%;
-  background-color: rgba(14, 42, 127, 0.2);
+  background-color: rgba(154, 181, 255, 0.7);
   position: absolute;
   display: flex;
-
+  padding: 0.5rem 1rem;
   div {
     position: relative;
-    padding: 0.5rem 1rem;
     flex: none;
   }
-  svg {
+  .closeBtn {
     margin-left: auto;
-    padding: 0.5rem 1rem;
-    margin-left: auto;
-    color: #fff;
+    color: #ffffff;
+    cursor: pointer;
   }
 `;
 export default function Video({ item, onRemoveItem }) {
@@ -51,7 +49,11 @@ export default function Video({ item, onRemoveItem }) {
     <>
       <SetArea>
         <div style={{ color: "white" }}>Video</div>
-        <CloseIcon fontSize="medium" onClick={() => onRemoveItem(item)} />
+        <CloseIcon
+          className="closeBtn"
+          fontSize="medium"
+          onClick={() => onRemoveItem(item)}
+        />
       </SetArea>
       <Container>
         <ReactPlayer

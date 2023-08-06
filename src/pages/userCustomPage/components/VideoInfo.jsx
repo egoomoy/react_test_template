@@ -17,22 +17,21 @@ const Container = styled.div`
 const SetArea = styled.div`
   z-index: 3;
   width: 100%;
-  background-color: rgba(14, 42, 127, 0.1);
+  background-color: rgba(154, 181, 255, 0.3);
   position: absolute;
   display: flex;
-
+  padding: 0.5rem 1rem;
   div {
     position: relative;
-    padding: 0.5rem 1rem;
     flex: none;
   }
   svg {
     margin-left: auto;
-    padding: 0.5rem 1rem;
-    margin-left: auto;
-    color: #fff;
+    color: #ffffff;
+    cursor: pointer;
   }
 `;
+
 export default function VideoInfo({ item, onRemoveItem }) {
   return (
     <>
