@@ -17,7 +17,7 @@ import ComponentsSwitch from "./ComponentsSwitch";
  */
 
 const originalItems = [
-  "alert",
+  "title",
   "video",
   "notice",
   "playlist",
@@ -32,7 +32,7 @@ const initialLayouts = {
       h: 1,
       x: 0,
       y: 0,
-      i: "alert",
+      i: "title",
       moved: false,
       static: false,
     },

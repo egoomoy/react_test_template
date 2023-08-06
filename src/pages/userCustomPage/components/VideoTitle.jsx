@@ -1,14 +1,12 @@
 import React from "react";
+import useClasses from "../../../hooks/useClasses";
 import CloseIcon from "@mui/icons-material/Close";
-import ReactPlayer from "react-player";
-import Control from "./Control";
 import styled from "styled-components";
 
 const Container = styled.div`
   height: 100%;
   width: 100%;
   display: "flex";
-  background: #0f0f0f;
   flex-direction: "column";
 `;
 
@@ -32,22 +30,13 @@ const SetArea = styled.div`
   }
 `;
 
-export default function Video({ item, onRemoveItem }) {
+export default function VideoTitle({ item, onRemoveItem }) {
   return (
     <Container>
       <SetArea>
-        <div style={{ color: "white" }}>Video</div>
+        <div style={{ color: "white" }}>VideoTitle</div>
         <CloseIcon fontSize="medium" onClick={() => onRemoveItem(item)} />
       </SetArea>
-      <ReactPlayer
-        className="player"
-        url="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"
-        width="100%"
-        height="100%"
-        playing={true}
-        muted={true}
-      ></ReactPlayer>
-      <Control />
     </Container>
   );
 }

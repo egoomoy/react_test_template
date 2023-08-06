@@ -1,7 +1,7 @@
 import React from "react";
 import Playlist from "./components/Playlist";
 import Notice from "./components/Notice";
-import SysAlert from "./components/SysAlert";
+import VideoTitle from "./components/VideoTitle";
 import Video from "./components/Video";
 import Review from "./components/Review";
 import VideoInfo from "./components/VideoInfo";
@@ -15,10 +15,10 @@ import VideoInfo from "./components/VideoInfo";
 
 const ComponentsSwitch = ({ item, onRemoveItem }) => {
   switch (item) {
-    case "alert":
+    case "title":
       return (
         <>
-          <SysAlert
+          <VideoTitle
             item={item}
             onRemoveItem={onRemoveItem}
             backgroundColor="#66b115"
