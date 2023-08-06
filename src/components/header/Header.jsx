@@ -5,8 +5,6 @@ import { useUserStore } from "../../store/useUserStore";
 import { Avatar } from "@mui/material";
 const HeaderWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -19,7 +17,6 @@ const LogoArea = styled.div`
 const UserInfoArea = styled.div`
   margin-left: auto;
   margin-right: 1rem;
-  flex-wrap: wrap;
   flex-direction: row;
   * {
   }

@@ -1,46 +1,50 @@
 import React from "react";
-import useClasses from "../../../hooks/useClasses";
-import Card from "@mui/material/Card";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
+import styled from "styled-components";
+import CloseIcon from "@mui/icons-material/Close";
 
-const styles = () => ({
-  root: {
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-  },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    padding: "0.5rem",
-  },
-  spacer: {
-    flexGrow: 1,
-  },
-  body: {
-    padding: "0.5rem",
-    flexGrow: 1,
-  },
-});
+const Container = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: "column";
+  border: 0.1rem dotted #bebebe;
+  border-radius: 5px;
+  padding: 1rem;
+`;
+const SetArea = styled.div`
+  z-index: 3;
+  width: 100%;
+  background-color: rgba(14, 42, 127, 0.1);
+  position: absolute;
+  display: flex;
 
+  div {
+    position: relative;
+    padding: 0.5rem 1rem;
+    flex: none;
+  }
+  svg {
+    margin-left: auto;
+    padding: 0.5rem 1rem;
+    margin-left: auto;
+    color: #fff;
+  }
+`;
 export default function VideoInfo({ item, onRemoveItem }) {
-  const classes = useClasses(styles);
-
   return (
-    <Card className={classes.root}>
-      <div className={classes.header}>
-        <Typography variant="h6" gutterBottom>
-          VideoInfo
+    <>
+      <SetArea>
+        <div style={{ color: "white" }}>VideoInfo</div>
+        <CloseIcon fontSize="medium" onClick={() => onRemoveItem(item)} />
+      </SetArea>
+      <Container>
+        <Typography noWrap className="video_name" variant="h6">
+          VideoInfo를 작성하는 구역
         </Typography>
-        <div className={classes.spacer} />
-        <IconButton aria-label="delete" onClick={() => onRemoveItem(item)}>
-          <CloseIcon fontSize="small" />
-        </IconButton>
-      </div>
-      <div className={classes.body} />
-    </Card>
+      </Container>
+    </>
   );
 }

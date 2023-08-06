@@ -13,7 +13,7 @@ import ComponentsSwitch from "./ComponentsSwitch";
  *
  * itnialLayout
  * |포탈id|메뉴id혹은화면번호|아이템id|x좌표위치|y좌표위치|static여부|wh는 조인으로
- *
+ * https://mui.com/store/previews/minimal-dashboard/
  */
 
 const originalItems = [

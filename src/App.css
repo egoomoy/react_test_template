@@ -8,6 +8,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 li {
@@ -49,13 +50,12 @@ body {
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr 2fr 88fr;
+  grid-template-rows: 2fr 2fr 96fr;
   grid-template-areas:
     "header"
     "sidebar"
     "main";
   font-weight: 700;
-  text-transform: uppercase;
   text-align: center;
 }
 
@@ -64,7 +64,6 @@ body {
   grid-area: header;
   /* border-radius: var(--main-radius); */
   padding: 0.5rem 0rem;
-  min-height: 35px;
   color: black;
   border-bottom: 0.1rem solid #ececec;
 }
@@ -173,9 +172,6 @@ margin: 1rem;
   -o-user-select: none;
   user-select: none;
 }
-
-
-
 
 .react-grid-item > .react-resizable-handle {
   position: absolute;
