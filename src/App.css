@@ -39,8 +39,8 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 88fr;
   grid-template-areas:
-  "header"
-  "main";
+    "header"
+    "main";
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
@@ -165,7 +165,7 @@ margin: 1rem;
   background: rgb(187, 255, 184);
   opacity: 0.2;
   transition-duration: 100ms;
-  z-index: 2;
+  z-index: 5;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -310,7 +310,7 @@ margin: 1rem;
 .react-resizable-handle-s {
   bottom: 0;
   transform: rotate(45deg);
-} 
+}
 /* 
 .video_container {
   display: flex;

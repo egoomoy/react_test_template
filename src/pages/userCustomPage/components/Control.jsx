@@ -6,10 +6,9 @@ import {
   PlayArrow,
   SkipNext,
   VolumeUp,
+  Refresh,
 } from "@mui/icons-material";
-import "./Control.css";
-import Box from "@mui/material/Box";
-import { Slider, Button, Popover, Grid, Tooltip } from "@mui/material";
+import { Slider } from "@mui/material";
 import styled from "styled-components";
 
 //https://code.pieces.app/blog/react-player-customized-controls
@@ -40,6 +39,8 @@ const VideoArea = styled.div`
 
 const DummyArea = styled.div`
   height: 13%;
+  color: yellow;
+  font-size: 2rem;
 `;
 
 const ContolArea = styled.div`
@@ -50,6 +51,7 @@ const ContolArea = styled.div`
   svg {
     margin: auto 0;
     color: #ffffff;
+    cursor: pointer;
   }
   div {
     padding: 0 1rem;
@@ -58,32 +60,52 @@ const ContolArea = styled.div`
     font-size: 0.8rem;
   }
 `;
-
 const Control = ({
   onPlayPause,
   playing,
+  onRewind,
+  onForward,
   played,
   onSeek,
   onSeekMouseUp,
+  onVolumeChangeHandler,
+  onVolumeSeekUp,
+  volume,
+  mute,
+  onMute,
   duration,
   currentTime,
+  onMouseSeekDown,
+  controlRef,
+  onRefresh,
 }) => {
   return (
-    <>
+    <div ref={controlRef}>
       <Container>
         <VideoArea onClick={onPlayPause}></VideoArea>
-        <DummyArea></DummyArea>
-        <Slider
-          size="medium"
-          min={0}
-          max={100}
-          value={played * 100}
-          onChangeCommitted={onSeekMouseUp}
-          onChange={onSeek}
-        />
+        <DummyArea>
+          {played}
+          플레이어도 만드는게 맞는지 모르겠는데 만들고..있고,,,, 아 이렇게하면
+          자막도 사용할라면 할 수 있을듯..
+        </DummyArea>
+        <div>
+          <Slider
+            size="medium"
+            min={0}
+            max={100}
+            value={played * 100}
+            onChange={onSeek}
+            onChangeCommitted={onSeekMouseUp}
+            onMouseDown={onMouseSeekDown}
+          />
+        </div>
         <ContolArea>
           {playing ? (
-            <Pause onClick={onPlayPause} />
+            played >= 1 ? (
+              <Refresh onClick={onRefresh} />
+            ) : (
+              <Pause onClick={onPlayPause} />
+            )
           ) : (
             <PlayArrow onClick={onPlayPause} />
           )}
@@ -92,7 +114,7 @@ const Control = ({
           </div>
         </ContolArea>
       </Container>
-    </>
+    </div>
   );
 };
 
