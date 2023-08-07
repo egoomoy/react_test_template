@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import {
   FastForward,
   FastRewind,
@@ -10,68 +10,89 @@ import {
 import "./Control.css";
 import Box from "@mui/material/Box";
 import { Slider, Button, Popover, Grid, Tooltip } from "@mui/material";
-import useClasses from "../../../hooks/useClasses";
+import styled from "styled-components";
 
 //https://code.pieces.app/blog/react-player-customized-controls
 //참고 중
 
-const styles = (theme) => ({
-  volumeSlider: {
-    width: "5px",
-    color: "#9556CC",
-  },
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+  span {
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+    color: #ffffff;
+  }
+  .MuiSlider-thumb {
+    width: 10px;
+    height: 10px;
+    color: #ffffff;
+  }
+`;
+const VideoArea = styled.div`
+  height: 80%;
+`;
 
-  bottomIcons: {
-    color: "#999",
-    padding: "12px 8px",
+const DummyArea = styled.div`
+  height: 13%;
+`;
 
-    "&:hover": {
-      color: "#fff",
-    },
-  },
-});
+const ContolArea = styled.div`
+  background-color: rgba(81, 81, 81, 0.1);
+  height: 7%;
+  display: flex;
+  padding: 0 0.5rem;
+  svg {
+    margin: auto 0;
+    color: #ffffff;
+  }
+  div {
+    padding: 0 1rem;
+    margin: auto 0;
+    color: #ffffff;
+    font-size: 0.8rem;
+  }
+`;
 
-const Control = () => {
-  const classes = useClasses(styles);
+const Control = ({
+  onPlayPause,
+  playing,
+  played,
+  onSeek,
+  onSeekMouseUp,
+  duration,
+  currentTime,
+}) => {
   return (
-    <div className="control_Container">
-      <div className="top_container"></div>
-
-      <div className="mid__container">
-        <div className="icon__btn">
-          <FastRewind fontSize="large" />
-        </div>
-
-        <div className="icon__btn">
-          <Pause fontSize="large" />
-        </div>
-
-        <div className="icon__btn">
-          <FastForward fontSize="large" />
-        </div>
-      </div>
-
-      <div className="bottom__container">
-        <div className="slider__container"></div>
-        <div className="control__box">
-          <div className="inner__controls">
-            <div className="icon__btn">
-              <PlayArrow fontSize="large" />
-            </div>
-            <div className="icon__btn">
-              <SkipNext fontSize="large" />
-            </div>
-            <div className="icon__btn">
-              <VolumeUp className="svg_icons" />
-            </div>
-
-            <Box sx={{ width: 100 }}>
-              <Slider size="large" valueLabelDisplay="on" />
-            </Box>
+    <>
+      <Container>
+        <VideoArea onClick={onPlayPause}></VideoArea>
+        <DummyArea></DummyArea>
+        <Slider
+          size="medium"
+          min={0}
+          max={100}
+          value={played * 100}
+          onChangeCommitted={onSeekMouseUp}
+          onChange={onSeek}
+        />
+        <ContolArea>
+          {playing ? (
+            <Pause onClick={onPlayPause} />
+          ) : (
+            <PlayArrow onClick={onPlayPause} />
+          )}
+          <div>
+            {currentTime} / {duration}
           </div>
-        </div>
-      </div>
-    </div>
+        </ContolArea>
+      </Container>
+    </>
   );
 };
 

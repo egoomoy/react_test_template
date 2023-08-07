@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
@@ -14,6 +15,7 @@ const Container = styled.div`
   border-radius: 5px;
   padding: 1rem;
 `;
+
 const SetArea = styled.div`
   z-index: 3;
   width: 100%;
